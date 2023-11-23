@@ -1,10 +1,11 @@
 @import 'reset';
+@import 'breakpoint';
 
 html {
   font-size: 56.25%;
 }
 
-@media (min-width: 768px) {
+@include sm {
   html {
     font-size: 62.5%;
   }
