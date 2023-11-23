@@ -1,0 +1,10 @@
+<nav>
+  <h2>Page Navigation</h2>
+  <ul>
+    {{ range $item := .Site.Data.navigation.items }}
+      <li>
+        <a href="{{ $item.link }}">{{ $item.title }}</a>
+      </li>
+    {{ end }}
+  </ul>
+</nav>
