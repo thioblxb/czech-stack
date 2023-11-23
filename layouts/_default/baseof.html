@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+    {{ if (eq  .RelPermalink "/404.html") }}
+      404 {{ .Site.Params.pageTitleSplitter }}{{ .Site.Title }}
+    {{ else }}
+      {{ if .Title }}
+        {{ .Title }}{{ .Site.Params.pageTitleSplitter }}
+      {{ end }}
+      {{ .Site.Title }}
+    {{ end }}
+  </title>
+  {{ $sass := resources.Get "styles/main.scss" }}
+  {{ $style := $sass | resources.ToCSS | resources.Fingerprint }}
+  <link rel="stylesheet" href="{{ $style.Permalink }}" integrity="{{ $style.Data.Integrity }}">
+</head>
+<body>
+  {{ partial "navigation" . }}
+  {{ block "main" . }}
+  {{ end }}
+  {{ partial "footer" . }}
+</body>
+</html>

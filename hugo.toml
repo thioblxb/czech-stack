@@ -1,0 +1,6 @@
+baseURL = 'https://czech-stack.vercel.app/'
+languageCode = 'cs'
+title = 'Czech Stack'
+
+[params]
+pageTitleSplitter = " | "
