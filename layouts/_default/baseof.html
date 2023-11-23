@@ -4,10 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>
-    {{ if .Title }}
-      {{ .Title }}{{ .Site.Params.pageTitleSplitter }}
+    {{ if (eq  .RelPermalink "/404.html") }}
+      404 {{ .Site.Params.pageTitleSplitter }}{{ .Site.Title }}
+    {{ else }}
+      {{ if .Title }}
+        {{ .Title }}{{ .Site.Params.pageTitleSplitter }}
+      {{ end }}
+      {{ .Site.Title }}
     {{ end }}
-    {{ .Site.Title }}
   </title>
 </head>
 <body>
