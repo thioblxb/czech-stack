@@ -3,11 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Czech Stack</title>
+  <title>
+    {{ if .Title }}
+      {{ .Title }}{{ .Site.Params.pageTitleSplitter }}
+    {{ end }}
+    {{ .Site.Title }}
+  </title>
 </head>
 <body>
   {{ partial "navigation" . }}
   {{ block "main" . }}
   {{ end }}
+  {{ partial "footer" . }}
 </body>
 </html>
