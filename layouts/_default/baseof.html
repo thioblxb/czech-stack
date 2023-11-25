@@ -29,8 +29,10 @@
 </head>
 <body>
   {{ partial "navigation" . }}
-  {{ block "main" . }}
-  {{ end }}
+  <div class="content-wrapper">
+    {{ block "main" . }}
+    {{ end }}
+  </div>
   {{ partial "footer" . }}
 </body>
 </html>
